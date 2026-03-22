@@ -6,3 +6,5 @@ pymysql
 scikit-learn
 dvc
 seaborn
+catboost
+xgboost
