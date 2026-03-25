@@ -131,7 +131,7 @@ class ModelTrainer:
             os.environ["MLFLOW_TRACKING_USERNAME"] = "kushneek"
             os.environ["MLFLOW_TRACKING_PASSWORD"] = "0beddda46fd1b53084bb353c306ab6201b4977d8"
 
-            mlflow.set_registry_uri("https://dagshub.com/kushneek/first_data_science_project_model_training.mlflow")
+            mlflow.set_registry_uri("https://dagshub.com/kushneek/Data-Science-Project.mlflow")
             tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
             # mlflow
