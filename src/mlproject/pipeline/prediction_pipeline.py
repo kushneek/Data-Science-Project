@@ -30,33 +30,28 @@ class CustomData:
     def __init__(  self,
         Gender: str,
         Section: str,
+        Age: int,      
         Science: int,
         English: int,
-        History: int,
-        Maths: int
+        History: int
         ):
 
         self.Gender = Gender
-
         self.Section = Section
-
+        self.Age = Age           # ✅ Add Age
         self.Science = Science
-
         self.English = English
-
         self.History = History
-
-        self.Maths = Maths
 
     def get_data_as_data_frame(self):
         try:
             custom_data_input_dict = {
-                "Gender": [self.Gender],
-                "Section": [self.Section],
+                "Age":     [self.Age],       
                 "Science": [self.Science],
-                "English": [self.English],
-                "Maths": [self.Maths],
                 "History": [self.History],
+                "English": [self.English],
+                "Gender":  [self.Gender], 
+                "Section": [self.Section],
     
             }
 
