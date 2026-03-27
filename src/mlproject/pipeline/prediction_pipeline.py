@@ -30,10 +30,10 @@ class CustomData:
     def __init__(  self,
         Gender: str,
         Section: str,
-        Science: float,
-        English: float,
-        History: float,
-        Maths: float
+        Science: int,
+        English: int,
+        History: int,
+        Maths: int
         ):
 
         self.Gender = Gender
