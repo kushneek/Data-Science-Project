@@ -10,3 +10,4 @@ catboost
 xgboost
 mlflow
 flask 
+gunicorn
