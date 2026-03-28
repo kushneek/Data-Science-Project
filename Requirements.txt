@@ -11,3 +11,4 @@ xgboost
 mlflow
 flask 
 gunicorn
+dagshub
