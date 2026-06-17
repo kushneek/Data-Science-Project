@@ -78,4 +78,4 @@ Multiple regression models evaluated — Linear Regression, Ridge, Lasso, Decisi
 ## Author
 
 Kushagra Neekhra — [GitHub](https://github.com/kushneek) 
-Email - kush.neek18@gmail.com
+
