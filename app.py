@@ -8,10 +8,7 @@ from src.mlproject.logger import logging
 from src.mlproject.exception import CustomException
 from src.mlproject.pipeline.prediction_pipeline import CustomData, PredictPipeline
 
-# ─────────────────────────────────────────────
-# Flask Prediction App ONLY
-# Training pipeline removed - not needed on server
-# ─────────────────────────────────────────────
+
 application = Flask(__name__)
 app = application
 
