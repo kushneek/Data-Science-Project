@@ -13,6 +13,7 @@ from sklearn.pipeline import Pipeline
 from src.mlproject.utils import save_object
 from src.mlproject.exception import CustomException
 from src.mlproject.logger import logging 
+from src.mlproject.components.data_ingestion import DataIngestion
 
 
 @dataclass
@@ -28,8 +29,14 @@ class DataTransformation:
         This function is responsible for data transformation
         '''
         try:
-            numerical_columns = [ "Age", "Science", "History", "English"]
-            categorical_columns=['Gender','Section']
+            numerical_columns = ["writing score", "reading score"]
+            categorical_columns=[
+                "gender",
+                "race/ethnicity",
+                "parental level of education",
+                "lunch",
+                "test preparation course",
+            ]
             num_pipeline=Pipeline(steps=[
                     ("imputer", SimpleImputer(strategy='median')),
                     ('scalar', StandardScaler())
@@ -65,17 +72,17 @@ class DataTransformation:
 
             preprocessing_obj=self.get_data_transformer_object()
 
-            target_column_name="Maths"
-            numerical_columns = ["Age", "Science", "History", "English"]
+            target_column_name= "math score"
+            numerical_columns = ["writing score", "reading score"]
 
             ## divide the train dataset to independent and dependent feature
-            input_features_train_df=train_df.drop(columns=[target_column_name,"id"],axis=1)
+            input_features_train_df=train_df.drop(columns=[target_column_name],axis=1)
             target_feature_train_df=train_df[target_column_name]
           
 
             ## divide the test dataset to independent and dependent feature
 
-            input_feature_test_df=test_df.drop(columns=[target_column_name,"id"],axis=1)
+            input_feature_test_df=test_df.drop(columns=[target_column_name],axis=1)
             target_feature_test_df=test_df[target_column_name]
 
             logging.info("Applying Preprocessing on training and test dataframe")
@@ -105,3 +112,11 @@ class DataTransformation:
             )
         except Exception as e:
             raise CustomException(e, sys)
+
+if __name__ == "__main__":
+    obj = DataIngestion()
+    train_path, test_path = obj.initiate_data_ingestion()
+    
+    data_transformation = DataTransformation()
+    train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_path, test_path)
+    print("Data Transformation completed")
